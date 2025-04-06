@@ -1,0 +1,57 @@
+$materialGreen: #4CAF50;
+$materialGreenDark: #388E3C;
+$materialRed: #F44336;
+$materialRedDark: #D32F2F;
+$materialBlue: #2196F3;
+$materialBlueDark: #1976D2;
+$materialOrange: #FF9800;
+$materialOrangeDark: #F57C00;
+
+html, body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+button,
+.button{
+    background-color: $materialBlue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1em;
+
+    &:hover{
+        background-color: $materialBlueDark;
+    }
+
+    &:not(:last-child){
+        margin-right: 10px;
+    }
+}
+
+.button-primary{
+    background-color: $materialGreen;
+    &:hover{
+        background-color: $materialGreenDark;
+    }
+}
+
+.button-danger{
+    background-color: $materialRed;
+    &:hover{
+        background-color: $materialRedDark;
+    }
+}
+
+.button-warning{
+    background-color: $materialOrange;
+    &:hover{
+        background-color: $materialOrangeDark;
+    }
+}   
