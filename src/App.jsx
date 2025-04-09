@@ -5,8 +5,6 @@ import './App.scss'
 import Content from './layout/Content'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Content />

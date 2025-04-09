@@ -39,6 +39,31 @@ class DataTable extends React.Component {
         }
     }
 
+    deleteUser = (userID) => {
+        if(confirm("Are you sure you want to delete this user? #" + userID)) {
+            fetch(this.state.api, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({id: userID}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert(data.message);
+                    this.getData(); // Refresh the data after deletion
+                }
+            })
+            .catch((error) => {
+                //this.setState({ status: false, notification: `Error: ${error}` });
+                alert(`Error: ${error}`);
+            });   
+        }
+    }
+
     render(){
         return (
             <div className={styles.DataTableContainer}>
@@ -80,12 +105,7 @@ class DataTable extends React.Component {
                                                 </Link>
                                             )}
                                             {this.state.deleteId && (
-                                                <button className="button button-danger"
-                                                    onClick={() => {
-                                                        this.setState({ deleteId: row.id });
-                                                        console.log("Delete ID:", row.id);
-                                                    }}
-                                                >
+                                                <button className="button button-danger" onClick={() => this.deleteUser(row[this.state.deleteId])}>
                                                     Delete
                                                 </button>
                                             )}

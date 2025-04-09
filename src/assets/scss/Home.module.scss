@@ -1,0 +1,11 @@
+.Container {
+  display: flex;
+  justify-content: space-between;
+
+  .Main {
+    flex-basis: 65%;
+  }
+  .Sidebar {
+    flex-basis: 30%;
+  }
+}
